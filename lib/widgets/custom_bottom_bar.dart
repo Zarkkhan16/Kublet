@@ -104,7 +104,7 @@ class CustomBottomBarState extends State<CustomBottomBar> {
 
 // enum BottomBarEnum {
 //   Home,
-//   Mykublets,
+//   AppsDetail,
 //   Settings,
 // }
 

@@ -16,8 +16,8 @@ final bottomMenuNotifier =
               BottomMenuModel(
                 icon: ImageConstant.bucketIcon,
                 activeIcon: ImageConstant.bucketActiveIcon,
-                title: "lbl_my_kublets".tr,
-                type: BottomBarEnum.Mykublets,
+                title: "lbl_apps_detail".tr,
+                type: BottomBarEnum.AppsDetail,
               ),
               BottomMenuModel(
                 icon: ImageConstant.settingIcon,

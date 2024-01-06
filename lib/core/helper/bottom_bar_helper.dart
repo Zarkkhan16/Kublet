@@ -19,7 +19,7 @@
 //     switch (type) {
 //       case BottomBarEnum.Home:
 //         return AppRoutes.homeTabContainerPage;
-//       case BottomBarEnum.Mykublets:
+//       case BottomBarEnum.AppsDetail:
 //         return "/";
 //       case BottomBarEnum.Settings:
 //         return AppRoutes.selectedAppPage;

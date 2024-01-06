@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
 import 'package:kublet/core/utils/colour_constants.dart';
+import 'package:kublet/presentation/apps_configuration_page/models/drop_down_data_model.dart';
 
 class CustomDropDown extends StatelessWidget {
   const CustomDropDown({
@@ -33,7 +34,8 @@ class CustomDropDown extends StatelessWidget {
   final Widget? icon;
   final bool? autofocus;
   final TextStyle? textStyle;
-  final List<SelectionPopupModel>? items;
+  // final List<SelectionPopupModel>? items;
+  final List<DropdownDataModel>? items;
   final String? hintText;
   final TextStyle? hintStyle;
   final Widget? prefix;
@@ -45,8 +47,8 @@ class CustomDropDown extends StatelessWidget {
   final Color? fillColor;
   final bool? filled;
   final String? title;
-  final FormFieldValidator<SelectionPopupModel>? validator;
-  final Function(SelectionPopupModel)? onChanged;
+  final FormFieldValidator<DropdownDataModel>? validator;
+  final Function(DropdownDataModel)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -69,27 +71,37 @@ class CustomDropDown extends StatelessWidget {
           child: Text(title??'', style: theme.textTheme.titleMedium),
         ),
 
-        DropdownButtonFormField<SelectionPopupModel>(
-          focusNode: focusNode ?? FocusNode(),
-          icon: icon??Icon(Icons.arrow_drop_down_outlined,size:37.adaptSize,color: ColourConstants.lightGray,),
-          autofocus: autofocus!,
-          style: textStyle ?? theme.textTheme.titleMedium,
-          items: items?.map((SelectionPopupModel item) {
-            return DropdownMenuItem<SelectionPopupModel>(
-              value: item,
-              child: Text(
-                item.title,
-                overflow: TextOverflow.ellipsis,
-                style: hintStyle ?? theme.textTheme.titleMedium,
-              ),
-            );
-          }).toList(),
-          decoration: decoration,
-          validator: validator,
-          onChanged: (value) {
-            onChanged!(value!);
-          },
+  DropdownButtonHideUnderline(
+          child: DropdownButtonFormField<DropdownDataModel>(
+            focusNode: focusNode ?? FocusNode(),
+            icon: icon ?? Icon(
+              Icons.arrow_drop_down_outlined,
+              size: 37.adaptSize,
+              color: ColourConstants.lightGray,
+            ),
+            autofocus: autofocus!,
+            style: textStyle ?? theme.textTheme.titleMedium,
+            isExpanded: true,
+            items: items?.map((DropdownDataModel item) {
+              return DropdownMenuItem<DropdownDataModel>(
+                value: item,
+                child: Text(
+                  item.name!,
+                  overflow: TextOverflow.ellipsis,
+                  style: hintStyle ?? theme.textTheme.titleMedium,
+                ),
+              );
+            }).toList(),
+            dropdownColor:theme.colorScheme.onPrimaryContainer ,
+
+            decoration: decoration,
+            validator: validator,
+            onChanged: (value) {
+              onChanged!(value!);
+            },
+          ),
         ),
+
       ],
     ),
   );
@@ -98,10 +110,10 @@ class CustomDropDown extends StatelessWidget {
     hintText: hintText ?? "",
     hintStyle: hintStyle ?? theme.textTheme.titleMedium,
     prefixIcon: prefix,
+
     prefixIconConstraints: prefixConstraints,
     suffixIcon: suffix,
     suffixIconConstraints: suffixConstraints,
-    isDense: true,
     contentPadding: contentPadding ??
         EdgeInsets.only(
           left: 12.h,

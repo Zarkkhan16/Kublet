@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kublet/presentation/apps_configuration_page/apps_configuration_page.dart';
 import 'package:kublet/presentation/found_device_one_screen/found_device_screen.dart';
-import 'package:kublet/presentation/my_kublets_screen/my_kublets_screen.dart';
+import 'package:kublet/presentation/home_container_screen/apps_detail_screen/sekected_app_detail_screen.dart';
 import 'package:kublet/presentation/set_up_screen/set_up_screen.dart';
 import 'package:kublet/presentation/scanning_screen/scanning_screen.dart';
 import 'package:kublet/presentation/home_container_screen/home_container_screen.dart';
-import 'package:kublet/presentation/stocks_page/stocks_page.dart';
 import 'package:kublet/presentation/sync_screen/sync_screen.dart';
 import 'package:kublet/presentation/settings_screen/settings_screen.dart';
 import 'package:kublet/presentation/wifi_naming_screen/wifi_naming_screen.dart';
@@ -24,9 +24,9 @@ class AppRoutes {
 
   static const String homeContainerScreen = '/home_container_screen';
 
-  static const String myKublets = '/my_kublets_screen';
+  static const String AppsDetail = '/apps_detail_screen';
 
-  static const String stocksScreen = '/selected_app_page';
+  static const String appsConfigurationScreen = '/selected_app_page';
 
   static const String syncScreen = '/sync_screen';
 
@@ -47,8 +47,8 @@ class AppRoutes {
     scanningScreen: (context) => ScanningScreen(),///
     foundDeviceScreen: (context) => FoundDeviceScreen(),///
     homeContainerScreen: (context) => HomeContainerScreen(),///
-    stocksScreen: (context) => StocksScreen(),///
-    myKublets: (context) => MyKubletsScreen(),///
+    appsConfigurationScreen: (context) => AppsConfigurationScreen(),///
+    AppsDetail: (context) => SelectedAppsDetailScreen(),///
     syncScreen: (context) => SyncScreen(),///
     settingsScreen: (context) => SettingsScreen(),///
     wifiScreen: (context) => WifiScreen(),///

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
 import 'package:kublet/data/enum/bottom_bar_enum.dart';
 import 'package:kublet/presentation/bottom_menu_screen/botttom_menu_screen.dart';
+import 'package:kublet/presentation/home_container_screen/apps_detail_screen/sekected_app_detail_screen.dart';
 import 'package:kublet/presentation/home_tab_container_page/home_tab_container_page.dart';
-import 'package:kublet/presentation/my_kublets_screen/my_kublets_screen.dart';
 import 'package:kublet/presentation/settings_screen/settings_screen.dart';
 
 class HomeContainerScreen extends ConsumerStatefulWidget {
@@ -48,8 +48,8 @@ class HomeContainerScreenState extends ConsumerState<HomeContainerScreen> {
     switch (type) {
       case BottomBarEnum.Home:
         return AppRoutes.homeTabContainerPage;
-      case BottomBarEnum.Mykublets:
-        return AppRoutes.myKublets;
+      case BottomBarEnum.AppsDetail:
+        return AppRoutes.AppsDetail;
       case BottomBarEnum.Settings:
         return AppRoutes.settingsScreen;
       default:
@@ -66,8 +66,8 @@ class HomeContainerScreenState extends ConsumerState<HomeContainerScreen> {
         return HomeTabContainerPage();
       case AppRoutes.settingsScreen:
         return SettingsScreen();
-        case AppRoutes.myKublets:
-        return MyKubletsScreen();
+        case AppRoutes.AppsDetail:
+        return SelectedAppsDetailScreen();
       default:
         return HomeTabContainerPage();
     }

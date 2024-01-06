@@ -40,9 +40,7 @@ class MyApp extends ConsumerWidget {
               '',
             ),
           ],
-          // home: StocksScreen(),
-          initialRoute: AppRoutes.setUpScreen,
-          // initialRoute: AppRoutes.foundDeviceScreen,
+          initialRoute: AppRoutes.homeContainerScreen,
           routes: AppRoutes.routes,
         );
       },

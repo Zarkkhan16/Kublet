@@ -1,5 +1,5 @@
 enum BottomBarEnum {
   Home,
-  Mykublets,
+  AppsDetail,
   Settings,
 }

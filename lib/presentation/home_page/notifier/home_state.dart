@@ -1,18 +1,24 @@
 part of 'home_notifier.dart';
-
 class HomeState extends Equatable {
-  HomeState({this.homeModelObj});
+  HomeState({
+    this.appsResponse,
+    this.selectedApp
+  });
 
-  HomeModel? homeModelObj;
+  final DataResponseModel<AppsListModel>? appsResponse;
+  final AppModel? selectedApp;
 
   @override
-  List<Object?> get props => [
-        homeModelObj,
-      ];
+  List<Object?> get props => [ appsResponse, selectedApp];
 
-  HomeState copyWith({HomeModel? homeModelObj}) {
+  HomeState copyWith({
+    DataResponseModel<AppsListModel>? appsResponse,
+    AppModel? selectedApp
+  }) {
     return HomeState(
-      homeModelObj: homeModelObj ?? this.homeModelObj,
+      appsResponse: appsResponse ?? this.appsResponse,
+      selectedApp: selectedApp ?? this.selectedApp,
+
     );
   }
 }

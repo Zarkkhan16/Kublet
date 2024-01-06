@@ -15,6 +15,10 @@ dependencies:
   flutter_svg: ^1.1.6
   equatable: ^2.0.5
   intl: ^0.18.0
+  dio: ^5.4.0
+  autocomplete_textfield:
+  dropdown_search: ^5.0.6
+
 
 dev_dependencies:
   flutter_test:

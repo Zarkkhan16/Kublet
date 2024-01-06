@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kublet/core/app_export.dart';
 
 class CustomImageView extends StatelessWidget {
   String? imagePath;
@@ -51,7 +52,6 @@ class CustomImageView extends StatelessWidget {
     );
   }
 
-  ///build the image with border radius
   _buildCircleImage() {
     if (radius != null) {
       return ClipRRect(
@@ -63,7 +63,6 @@ class CustomImageView extends StatelessWidget {
     }
   }
 
-  ///build the image with border and border radius style
   _buildImageWithBorder() {
     if (border != null) {
       return Container(
@@ -114,6 +113,9 @@ class CustomImageView extends StatelessWidget {
               child: LinearProgressIndicator(
                 color: Colors.grey.shade200,
                 backgroundColor: Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(
+                  10.h,
+                ),
               ),
             ),
             errorWidget: (context, url, error) => Image.asset(

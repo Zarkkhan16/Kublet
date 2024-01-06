@@ -55,9 +55,9 @@ final Map<String, String> enUs = {
   "lbl_home": "Home",
   "lbl_kublet": "kublet",
   "lbl_my_apps": "My Apps",
-  "lbl_my_kublets": "My kublets",
+  "lbl_apps_detail": "My kublets",
   "lbl_settings": "Settings",
-  "lbl_stocks": "Stocks",
+  "lbl_AppsConfiguration": "AppsConfiguration",
   "lbl_wi_fi": "Wi-Fi",
   "msg_power_your_kublet":
       "Power your kublet to turn it on\nand bring it close to your phone ",
