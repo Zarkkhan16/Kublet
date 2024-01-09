@@ -19,6 +19,10 @@ final homeNotifier = StateNotifierProvider<HomeNotifier, HomeState>(
 class HomeNotifier extends StateNotifier<HomeState> {
   HomeNotifier(HomeState state) : super(state);
 
+
+
+
+
   Future<void> setApps() async {
     try {
       final response = await AppsService.getApps();
@@ -45,6 +49,7 @@ class HomeNotifier extends StateNotifier<HomeState> {
       );
     }
   }
+
 
   void setSelectedApp(AppModel appModel) =>
       state = state.copyWith(selectedApp: appModel);

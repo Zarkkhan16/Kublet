@@ -17,7 +17,6 @@ class UiDataModel {
       'firmware_url': firmwareUrl,
     };
 
-
     return data;
   }
 }

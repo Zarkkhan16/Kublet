@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kublet/core/utils/colour_constants.dart';
+import 'package:kublet/core/utils/app_colours.dart';
 import 'package:kublet/core/utils/size_utils.dart';
 
 class CustomTab extends StatefulWidget {
@@ -24,7 +24,7 @@ class _CustomTabState extends State<CustomTab> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 4.adaptSize),
       decoration: BoxDecoration(
-        color: widget.isSelected ? theme.colorScheme.primary : ColourConstants.darkGray,
+        color: widget.isSelected ? theme.colorScheme.primary : AppColours.darkGray,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(

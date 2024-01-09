@@ -16,8 +16,10 @@ dependencies:
   equatable: ^2.0.5
   intl: ^0.18.0
   dio: ^5.4.0
-  autocomplete_textfield:
   dropdown_search: ^5.0.6
+  sqflite: ^2.3.0
+  path:
+  fluttertoast: ^8.0.9
 
 
 dev_dependencies:

@@ -1,7 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/core/utils/colour_constants.dart';
+import 'package:kublet/core/utils/app_colours.dart';
 import 'package:kublet/presentation/apps_configuration_page/models/drop_down_data_model.dart';
 
 class CustomDropDownSearch extends StatelessWidget {
@@ -27,6 +27,7 @@ class CustomDropDownSearch extends StatelessWidget {
     this.filled = true,
     this.validator,
     this.onChanged,
+    this.value,
   }) : super(key: key);
 
   final Alignment? alignment;
@@ -36,7 +37,7 @@ class CustomDropDownSearch extends StatelessWidget {
   final bool? autofocus;
   final TextStyle? textStyle;
 
-  // final List<SelectionPopupModel>? items;
+  DropdownDataModel? value;
   List<DropdownDataModel>? items;
   final String? hintText;
   final TextStyle? hintStyle;
@@ -80,11 +81,11 @@ class CustomDropDownSearch extends StatelessWidget {
                 items: items!,
                 dropdownBuilder: (cx,vl)
                 {
-                  return Text(selectedValue.name??'Select',
+                  return Text(value!.name??'Select',
                     style: theme.textTheme.titleSmall,);
                 },
                 dropdownButtonProps: DropdownButtonProps(
-                  color: ColourConstants.lightGray
+                  color: AppColours.lightGray
                 ),
                 // selectedItem: selectedValue,
                 onChanged: (v){
@@ -223,17 +224,17 @@ class CustomDropDownSearch extends StatelessWidget {
       border: borderDecoration ??
           OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.h),
-            borderSide: BorderSide(color:ColourConstants.gray),
+            borderSide: BorderSide(color:AppColours.gray),
           ),
       enabledBorder: borderDecoration ??
           OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.h),
-            borderSide: BorderSide(color:ColourConstants.gray),
+            borderSide: BorderSide(color:AppColours.gray),
           ),
       focusedBorder: borderDecoration ??
           OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.h),
-            borderSide: BorderSide(color:ColourConstants.gray),
+            borderSide: BorderSide(color:AppColours.gray),
           ),
     );
   }

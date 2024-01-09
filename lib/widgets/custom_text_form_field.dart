@@ -95,7 +95,7 @@ class CustomTextFormField extends StatelessWidget {
               ),
             TextFormField(
               controller: controller,
-              focusNode: focusNode ?? FocusNode(),
+              // focusNode: focusNode ?? FocusNode(),
               autofocus: autofocus!,
               style: textStyle ?? theme.textTheme.titleMedium,
               obscureText: obscureText!,

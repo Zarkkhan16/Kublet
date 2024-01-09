@@ -2,10 +2,11 @@ part of 'home_notifier.dart';
 class HomeState extends Equatable {
   HomeState({
     this.appsResponse,
-    this.selectedApp
+    this.selectedApp,
   });
 
   final DataResponseModel<AppsListModel>? appsResponse;
+
   final AppModel? selectedApp;
 
   @override
@@ -13,7 +14,8 @@ class HomeState extends Equatable {
 
   HomeState copyWith({
     DataResponseModel<AppsListModel>? appsResponse,
-    AppModel? selectedApp
+    AppModel? selectedApp,
+    final DataResponseModel<List<String>>? tags
   }) {
     return HomeState(
       appsResponse: appsResponse ?? this.appsResponse,

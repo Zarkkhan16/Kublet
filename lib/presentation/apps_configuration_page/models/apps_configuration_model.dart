@@ -43,14 +43,11 @@ class AppConfigurationModel {
       'type': type,
       'default_text': defaultText,
       'ui_data': uiDataList?.map((uiData) => uiData.toJson()).toList(),
-      'dropdown_data': dropdownData?.map((dropdown) => dropdown.toJson()).toList(),
+      'dropdown_data':
+          dropdownData?.map((dropdown) => dropdown.toJson()).toList(),
       'required': required,
     };
 
     return data;
   }
 }
-
-
-
-

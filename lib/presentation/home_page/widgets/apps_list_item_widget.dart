@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/core/utils/apis_constants.dart';
-import 'package:kublet/core/utils/colour_constants.dart';
+import 'package:kublet/core/constants/apis_constants.dart';
+import 'package:kublet/core/utils/app_colours.dart';
 import 'package:kublet/core/utils/styles.dart';
 import 'package:kublet/data/models/apps/app_model.dart';
 

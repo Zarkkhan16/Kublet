@@ -20,7 +20,6 @@ class DropdownDataModel {
       'name': name,
     };
 
-
     return data;
   }
 }

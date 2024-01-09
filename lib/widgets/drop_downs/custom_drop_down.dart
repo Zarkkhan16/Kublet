@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/core/utils/colour_constants.dart';
+import 'package:kublet/core/utils/app_colours.dart';
 import 'package:kublet/presentation/apps_configuration_page/models/drop_down_data_model.dart';
 
 class CustomDropDown extends StatelessWidget {
@@ -77,7 +77,7 @@ class CustomDropDown extends StatelessWidget {
             icon: icon ?? Icon(
               Icons.arrow_drop_down_outlined,
               size: 37.adaptSize,
-              color: ColourConstants.lightGray,
+              color: AppColours.lightGray,
             ),
             autofocus: autofocus!,
             style: textStyle ?? theme.textTheme.titleMedium,

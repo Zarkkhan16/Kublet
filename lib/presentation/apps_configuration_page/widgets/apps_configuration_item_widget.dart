@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/core/utils/apis_constants.dart';
+import 'package:kublet/core/constants/apis_constants.dart';
 import 'package:kublet/core/utils/styles.dart';
 import 'package:kublet/presentation/apps_configuration_page/models/ui_data_model.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kublet/presentation/splash_screen/splash_screen.dart';
 import 'core/app_export.dart';
 
 
@@ -40,7 +41,7 @@ class MyApp extends ConsumerWidget {
               '',
             ),
           ],
-          initialRoute: AppRoutes.homeContainerScreen,
+          initialRoute: AppRoutes.splashScreen,
           routes: AppRoutes.routes,
         );
       },

@@ -54,7 +54,7 @@ class SettingsScreenState extends ConsumerState<SettingsScreen> {
           SizedBox(height: 6.v),
 
           RightIconButton(
-            onTap: () =>_onTapScreenTitle(AppRoutes.wifiScreen),
+            onTap: () =>_onTapScreenTitle(AppRoutes.editWifiScreen),
             title: "lbl_wi_fi".tr,
             icon: ImageConstant.imgArrowRight,
           ),
