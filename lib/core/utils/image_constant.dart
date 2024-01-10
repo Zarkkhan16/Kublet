@@ -23,4 +23,7 @@ class ImageConstant {
   static String imgNavSettings = '$imagePath/img_nav_settings.svg';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  //launcher Icon
+  static String launcher_icon = 'assets/images/kublet_launcher_icon.png';
 }
