@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
 import 'package:kublet/presentation/home_page/widgets/apps_list_widget.dart';
+
 import 'notifier/home_notifier.dart';
 
 class HomePage extends ConsumerStatefulWidget {
-  const HomePage({Key? key
-  }) : super(
+  const HomePage({Key? key})
+      : super(
           key: key,
         );
-
 
   @override
   HomePageState createState() => HomePageState();
@@ -16,8 +16,6 @@ class HomePage extends ConsumerStatefulWidget {
 
 class HomePageState extends ConsumerState<HomePage>
     with AutomaticKeepAliveClientMixin<HomePage> {
-
-
   @override
   bool get wantKeepAlive => true;
 
@@ -37,5 +35,4 @@ class HomePageState extends ConsumerState<HomePage>
       ),
     );
   }
-
 }

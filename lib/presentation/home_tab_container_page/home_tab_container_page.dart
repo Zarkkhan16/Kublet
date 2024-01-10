@@ -23,6 +23,7 @@ class HomeTabContainerPageState extends ConsumerState<HomeTabContainerPage>
   @override
   void initState() {
     super.initState();
+    ///getting tags
     getTags();
     tabviewController = TabController(length: 5, vsync: this);
   }

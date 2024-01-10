@@ -19,10 +19,10 @@ class AppsConfigurationListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      height: isSelected ? 250.adaptSize : 144.adaptSize,
-      width: isSelected ? 150.adaptSize : 144.adaptSize,
-      margin: EdgeInsets.symmetric(vertical: 12.v),
+      duration: Duration(milliseconds: 100),
+      height: isSelected ? 280.adaptSize : 144.adaptSize,
+      width: isSelected ? 147.adaptSize : 144.adaptSize,
+      margin: EdgeInsets.symmetric(vertical:isSelected ? 4.v:12.v),
       decoration: Styles.imageDecoration,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.h),

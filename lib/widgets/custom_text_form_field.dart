@@ -104,6 +104,13 @@ class CustomTextFormField extends StatelessWidget {
               maxLines: maxLines ?? 1,
               decoration: decoration,
               validator: validator,
+              onSaved: (_){
+                FocusManager.instance.primaryFocus?.unfocus();
+
+              },
+              onFieldSubmitted: (_){
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
             ),
           ],
         ),

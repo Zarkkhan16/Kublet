@@ -143,10 +143,9 @@ class SelectedAppPageState extends ConsumerState<AppsConfigurationScreen> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Consumer(builder: (context, ref, _) {
             return CustomDropDownSearch(
-                // title: "lbl_ticker".tr,
                 title: model.id,
-                // hintText: "lbl_aapl".tr,
                 hintText: "Select",
+                // showSearch: false,
                 value: selectedDropDownValue ?? DropdownDataModel(),
                 alignment: Alignment.centerRight,
                 items: model.dropdownData!,

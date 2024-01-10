@@ -34,7 +34,15 @@ class HomeTabContainerNotifier extends StateNotifier<HomeTabContainerState> {
           tagsResponse: DataResponseModel<List<String>>(DataResponseType.empty),
         );
       } else {
-        response.add("all");
+        response.add("All");
+        //upper_casing all tags
+        response = response.map((String word) {
+          if (word.isNotEmpty) {
+            return word[0].toUpperCase() + word.substring(1);
+          } else {
+            return word;
+          }
+        }).toList();
         response.sort((a, b) => a.compareTo(b));
 
         print(response);

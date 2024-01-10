@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
 import 'package:kublet/presentation/device_setup/scanning_screen/notifier/scanning_notifier.dart';
 import 'package:kublet/widgets/buttons/custom_outlined_button.dart';
+import 'package:kublet/widgets/custom_loader.dart';
 
 class FoundDeviceWidget extends StatelessWidget {
   @override

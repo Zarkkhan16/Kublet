@@ -28,6 +28,7 @@ class CustomDropDownSearch extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.value,
+    this.showSearch
   }) : super(key: key);
 
   final Alignment? alignment;
@@ -35,6 +36,7 @@ class CustomDropDownSearch extends StatelessWidget {
   final FocusNode? focusNode;
   final Widget? icon;
   final bool? autofocus;
+  final bool? showSearch;
   final TextStyle? textStyle;
 
   DropdownDataModel? value;
@@ -113,7 +115,7 @@ class CustomDropDownSearch extends StatelessWidget {
                         ),
                       ],
                     ),
-                  showSearchBox: true,
+                  showSearchBox:showSearch??true,
                   itemBuilder: _customPopupItemBuilderExample2,
                   searchFieldProps: TextFieldProps(
                     style: hintStyle ?? theme.textTheme.titleSmall,

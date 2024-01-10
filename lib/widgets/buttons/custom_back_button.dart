@@ -24,6 +24,8 @@ class CustomBackButton extends StatelessWidget {
         {
           onTap!.call();
         }
+        FocusManager.instance.primaryFocus?.unfocus();
+
         NavigatorService.goBack();
         },
       icon: Padding(
