@@ -30,15 +30,15 @@ class PrefUtils {
     }
   }
 
-  Future<void> setCurrentDeviceUid(String value) {
-    return _sharedPreferences!.setString(AppConstants.currentDeviceUid, value);
+  Future<void> setCurrentDeviceId(int id) {
+    return _sharedPreferences!.setInt(AppConstants.currentDeviceId, id);
   }
 
-  String getCurrentDeviceUid() {
+  int? getCurrentDeviceId() {
     try {
-      return _sharedPreferences!.getString(AppConstants.currentDeviceUid)!;
+      return _sharedPreferences!.getInt(AppConstants.currentDeviceId)!;
     } catch (e) {
-      return '';
+      return null;
     }
   }
 }

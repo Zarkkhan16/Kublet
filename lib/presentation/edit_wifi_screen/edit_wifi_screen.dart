@@ -1,9 +1,12 @@
-import 'package:kublet/widgets/app_bar/appbar_leading_image.dart';
-import 'notifier/wifi_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
+import 'package:kublet/widgets/app_bar/appbar_title.dart';
+import 'package:kublet/widgets/app_bar/custom_app_bar.dart';
+import 'package:kublet/widgets/buttons/custom_back_button.dart';
 import 'package:kublet/widgets/buttons/custom_outlined_button.dart';
 import 'package:kublet/widgets/custom_text_form_field.dart';
+
+import 'notifier/wifi_notifier.dart';
 
 class EditWifiScreen extends ConsumerStatefulWidget {
   const EditWifiScreen({Key? key}) : super(key: key);
@@ -11,54 +14,39 @@ class EditWifiScreen extends ConsumerStatefulWidget {
   @override
   WifiScreenState createState() => WifiScreenState();
 }
-class WifiScreenState extends ConsumerState<EditWifiScreen> {
 
+class WifiScreenState extends ConsumerState<EditWifiScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 27.h, vertical: 22.v),
-                child: Column(children: [
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 2.h),
-                          child: Row(children: [
-                            AppbarLeadingImage(imagePath: ImageConstant.imgArrowLeft,),                            Padding(
-                                padding: EdgeInsets.only(left: 123.h),
-                                child: Text("lbl_wi_fi".tr,
-                                    style: theme.textTheme.headlineLarge))
-                          ]))),
-                  SizedBox(height: 26.v),
-                  Padding(
-                      padding: EdgeInsets.only(left: 5.h),
-                      child: Consumer(builder: (context, ref, _) {
-                        return CustomTextFormField(
-                            controller: ref
-                                .watch(editWifiNotifier)
-                                .wifiNameController,
-                            hintText: "lbl_wifi_name".tr);
-                      })),
-                  SizedBox(height: 43.v),
-                  _buildWifiSettings(context),
-                  SizedBox(height: 14.v),
-                  _buildPasswordSettings(context),
-                  Spacer(),
-                  CustomOutlinedButton(
-                    onPressed: (){
-
-                    },
-                      text: "lbl_update".tr, margin: EdgeInsets.only(left: 6.h),
-                    buttonStyle:  CustomButtonStyles.outlinePrimary,
-                      
-                  )
-                ])),
-            
-    )
-    );
+      appBar: _buildAppBar(context),
+      resizeToAvoidBottomInset: false,
+      body: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(horizontal: 27.h, vertical: 22.v),
+          child: Column(children: [
+            Padding(
+                padding: EdgeInsets.only(left: 5.h),
+                child: Consumer(builder: (context, ref, _) {
+                  return CustomTextFormField(
+                      controller:
+                          ref.watch(editWifiNotifier).wifiNameController,
+                      hintText: "lbl_wifi_name".tr);
+                })),
+            SizedBox(height: 43.v),
+            _buildWifiSettings(context),
+            SizedBox(height: 14.v),
+            _buildPasswordSettings(context),
+            Spacer(),
+            CustomOutlinedButton(
+              onPressed: () {},
+              text: "lbl_update".tr,
+              margin: EdgeInsets.only(left: 6.h),
+              buttonStyle: CustomButtonStyles.outlinePrimary,
+            )
+          ])),
+    ));
   }
 
   Widget _buildWifiSettings(BuildContext context) {
@@ -70,12 +58,10 @@ class WifiScreenState extends ConsumerState<EditWifiScreen> {
               child: Text("lbl_new_ssid".tr,
                   style: CustomTextStyles.titleMediumBluegray100)),
           SizedBox(height: 9.v),
-
           Consumer(builder: (context, ref, _) {
             return CustomTextFormField(
                 controller: ref.watch(editWifiNotifier).ssidController);
           })
-
         ]));
   }
 
@@ -89,7 +75,6 @@ class WifiScreenState extends ConsumerState<EditWifiScreen> {
               child: Text("lbl_new_password".tr,
                   style: CustomTextStyles.titleMediumBluegray100)),
           SizedBox(height: 9.v),
-
           Consumer(builder: (context, ref, _) {
             return CustomTextFormField(
                 controller: ref.watch(editWifiNotifier).passwordController,
@@ -99,5 +84,13 @@ class WifiScreenState extends ConsumerState<EditWifiScreen> {
         ]));
   }
 
-
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
+    return CustomAppBar(
+        leadingWidth: 46.h,
+        leading: CustomBackButton(),
+        centerTitle: true,
+        title: AppbarTitle(
+          text: "lbl_wi_fi".tr,
+        ));
+  }
 }

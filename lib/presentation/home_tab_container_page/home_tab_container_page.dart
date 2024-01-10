@@ -18,7 +18,7 @@ class HomeTabContainerPage extends ConsumerStatefulWidget {
 
 class HomeTabContainerPageState extends ConsumerState<HomeTabContainerPage>
     with TickerProviderStateMixin {
-  late TabController tabviewController;
+   TabController? tabviewController;
 
   @override
   void initState() {
@@ -53,7 +53,7 @@ class HomeTabContainerPageState extends ConsumerState<HomeTabContainerPage>
               children: [
                 SizedBox(height: 14.v),
                 TabBar(
-                  controller: tabviewController,
+                  controller: tabviewController??TabController(length: 0, vsync: this),
                   labelPadding: EdgeInsets.zero,
                   isScrollable: true,
                   onTap: controller.updateSelectedIndex,
@@ -69,7 +69,8 @@ class HomeTabContainerPageState extends ConsumerState<HomeTabContainerPage>
                 ),
                 Expanded(
                   child: TabBarView(
-                    controller: tabviewController,
+                    controller: tabviewController??TabController(length: 0, vsync: this),
+                    physics: NeverScrollableScrollPhysics(),
                     children: List.generate(
                       ref
                           .watch(homeTabContainerNotifier)

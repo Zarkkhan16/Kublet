@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/data/enum/data_response_enum.dart';
-import 'package:kublet/data/models/device_configuration/device_configuration_model.dart';
+import 'package:kublet/data/models/apps/app_data_model.dart';
+import 'package:kublet/data/models/device/device_model.dart';
 import 'package:kublet/data/models/response_model/data_response_model.dart';
 import 'package:kublet/presentation/apps_configuration_page/models/apps_configuration_model.dart';
 import 'package:kublet/presentation/apps_configuration_page/notifier/apps_configuration_state.dart';
 import 'package:kublet/services/apps_services/apps_service.dart';
-import 'package:kublet/services/sq_lite_service/sq_lite_service.dart';
-
+import 'package:kublet/services/sq_lite_service/device_sq_lite_service.dart';
 import '/core/app_export.dart';
 
 final appsConfigurationAppNotifier =
@@ -22,7 +22,7 @@ final appsConfigurationAppNotifier =
 class AppsConfigurationAppNotifier
     extends StateNotifier<AppsConfigurationState> {
   AppsConfigurationAppNotifier(AppsConfigurationState state) : super(state);
-  final _sqLiteService = SqliteService();
+  final _deviceSqLiteService = DeviceSqliteService();
 
   Future<void> getSelectedAppConfiguration(String selectedApp) async {
     try {
@@ -55,29 +55,33 @@ class AppsConfigurationAppNotifier
     }
   }
 
-  Future<void> saveDeviceInfo(DeviceConfigurationModel? tickerAModel) async {
+  Future<void> saveAppInfo(AppDataModel? appDataModel) async {
     state = state.copyWith(loading: true);
-    String uid = await PrefUtils().getCurrentDeviceUid();
-    print(uid);
+    int? id = await PrefUtils().getCurrentDeviceId();
+    print(id);
 
     //getting current device data
-    List<DeviceConfigurationModel> id = await _sqLiteService.getItems();
-    DeviceConfigurationModel currentDeviceConfigurationModel =
-        id.where((element) => element.deviceIdentifier == uid).first;
+    List<DeviceModel> deviceList = await _deviceSqLiteService.getDeviceList();
+    print(deviceList);
+    DeviceModel currentDeviceModel =
+        deviceList.where((element) => element.id == id).first;
 
 
     //setting uo the  data to current data model
-    print(currentDeviceConfigurationModel.ssidName);
-    currentDeviceConfigurationModel.appId = tickerAModel!.appId;
-    currentDeviceConfigurationModel.tickerName = tickerAModel.tickerName;
-    currentDeviceConfigurationModel.tickerSymbol = tickerAModel.tickerSymbol;
-    currentDeviceConfigurationModel.tickerId = tickerAModel.tickerId;
-    currentDeviceConfigurationModel.uiImage = tickerAModel.uiImage;
-    currentDeviceConfigurationModel.uiFirmware = tickerAModel.uiFirmware;
+    print(currentDeviceModel.deviceInfo!.deviceName);
+    print(currentDeviceModel.id);
+    currentDeviceModel.appData = appDataModel;
+
+    //     tickerAModel!.appData;
+    // currentDeviceModel.tickerName = tickerAModel.tickerName;
+    // currentDeviceModel.tickerSymbol = tickerAModel.tickerSymbol;
+    // currentDeviceModel.tickerId = tickerAModel.tickerId;
+    // currentDeviceModel.uiImageUrl = tickerAModel.uiImageUrl;
+    // currentDeviceModel.firmwareUrl = tickerAModel.firmwareUrl;
     //
 
     int result =
-        await _sqLiteService.updateItem(currentDeviceConfigurationModel);
+        await _deviceSqLiteService.updateDeviceInfo(currentDeviceModel);
 
     state = state.copyWith(loading: false);
 

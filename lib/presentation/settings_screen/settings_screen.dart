@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/widgets/app_bar/appbar_leading_image.dart';
+import 'package:kublet/widgets/buttons/custom_back_button.dart';
 import 'package:kublet/widgets/app_bar/appbar_title.dart';
 import 'package:kublet/widgets/app_bar/custom_app_bar.dart';
 import 'package:kublet/widgets/buttons/right_icon_button.dart';
@@ -36,9 +36,6 @@ class SettingsScreenState extends ConsumerState<SettingsScreen> {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
         leadingWidth: 36.h,
-        leading: AppbarLeadingImage(
-            imagePath: ImageConstant.imgArrowLeft,
-            margin: EdgeInsets.only(left: 30.h, top: 19.v, bottom: 24.v)),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_settings".tr));
   }

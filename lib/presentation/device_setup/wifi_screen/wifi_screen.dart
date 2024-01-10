@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/data/models/device_configuration/device_configuration_model.dart';
+import 'package:kublet/data/models/device/device_info.dart';
+import 'package:kublet/data/models/device/device_model.dart';
 import 'package:kublet/presentation/device_setup/device_naming_screen/notifier/device_naming_notifier.dart';
 import 'package:kublet/presentation/device_setup/scanning_screen/notifier/scanning_notifier.dart';
 import 'package:kublet/presentation/device_setup/wifi_screen/notifier/wifi_notifier.dart';
-import 'package:kublet/widgets/app_bar/appbar_leading_image.dart';
+import 'package:kublet/widgets/buttons/custom_back_button.dart';
 import 'package:kublet/widgets/app_bar/appbar_title.dart';
 import 'package:kublet/widgets/app_bar/custom_app_bar.dart';
 import 'package:kublet/widgets/buttons/custom_outlined_button.dart';
@@ -43,7 +44,7 @@ class WifiScreenState extends ConsumerState<WifiScreen> {
                   onPressed: () {
                     {
                       ref.read(wifiNotifier.notifier).saveDeviceInfo(
-                          DeviceConfigurationModel(
+                          DeviceInfo(
                               deviceName: ref
                                   .read(scanningNotifier)
                                   .scanningModel
@@ -51,13 +52,7 @@ class WifiScreenState extends ConsumerState<WifiScreen> {
                               deviceUpdatedName: ref
                                   .read(deviceNamingNotifier)
                                   .deviceNameController!
-                                  .text,
-                              ssidName:
-                                  ref.read(wifiNotifier).ssidController!.text,
-                              ssidPassword: ref
-                                  .read(wifiNotifier)
-                                  .passwordController!
-                                  .text));
+                                  .text,));
                     }
                   },
                   text: "lbl_next".tr,
@@ -108,10 +103,7 @@ class WifiScreenState extends ConsumerState<WifiScreen> {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
         leadingWidth: 46.h,
-        leading: AppbarLeadingImage(
-            imagePath: ImageConstant.imgArrowLeft,
-            margin: EdgeInsets.only(left: 40.h, top: 23.v, bottom: 20.v),
-            onTap: () {}),
+        leading: CustomBackButton(),
         centerTitle: true,
         title: AppbarTitle(
           text: "lbl_wi_fi".tr,

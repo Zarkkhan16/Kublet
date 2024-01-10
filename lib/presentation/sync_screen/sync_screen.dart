@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kublet/core/app_export.dart';
-import 'package:kublet/widgets/app_bar/appbar_leading_image.dart';
+import 'package:kublet/widgets/buttons/custom_back_button.dart';
 import 'package:kublet/widgets/app_bar/appbar_title.dart';
 import 'package:kublet/widgets/app_bar/custom_app_bar.dart';
 import 'package:kublet/widgets/buttons/custom_outlined_button.dart';
@@ -58,10 +58,7 @@ class SyncScreenState extends ConsumerState<SyncScreen> {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
         leadingWidth: 46.h,
-        leading: AppbarLeadingImage(
-            imagePath: ImageConstant.imgArrowLeft,
-            margin: EdgeInsets.only(left: 40.h, top: 23.v, bottom: 20.v),
-            onTap: (){}),
+        leading: CustomBackButton(),
         centerTitle: true,
         title: AppbarTitle(text: "lbl_device".tr));
   }

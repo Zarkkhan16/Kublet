@@ -1,4 +1,6 @@
 import 'package:kublet/presentation/splash_screen/notifier/splash_state.dart';
+import 'package:kublet/services/sq_lite_service/device_sq_lite_service.dart';
+import 'package:kublet/services/sq_lite_service/wifi_sq_lite_service.dart';
 
 import '/core/app_export.dart';
 
@@ -7,16 +9,19 @@ final splashNotifier = StateNotifierProvider<SplashNotifier, SplashState>(
 
 class SplashNotifier extends StateNotifier<SplashState> {
   SplashNotifier(SplashState state) : super(state);
+  final _deviceSqLiteService = DeviceSqliteService();
+
 
   void onTapScreenTitle(String routeName) =>
-      NavigatorService.pushNamed(routeName);
+      NavigatorService.pushNamedAndRemoveUntil(routeName);
+
 
   Future<void> checkExitingKublet() async {
-    String uid = await PrefUtils().getCurrentDeviceUid();
-    print("kublet uid");
-    print(uid);
+    var list=await _deviceSqLiteService.getDeviceList();
+    // var list2=await WifiSqliteService().getWifi();
+    //
 
-    if (uid.isNotEmpty) {
+    if (list.isNotEmpty) {
       onTapScreenTitle(AppRoutes.homeContainerScreen);
       return;
     } else {

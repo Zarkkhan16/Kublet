@@ -10,6 +10,7 @@ final scanningNotifier = StateNotifierProvider<ScanningNotifier, ScanningState>(
             ScanningState(
               scanningModel: ScanningModel(
                 deviceList:  ["Kublet 1","Kublet 2","Kublet 3"],
+                selectedDevice: "Kublet 1"
               ),
 
 

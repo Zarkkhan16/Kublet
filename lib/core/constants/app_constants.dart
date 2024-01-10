@@ -1,6 +1,6 @@
 
 class AppConstants{
 
-  static const  currentDeviceUid='currentDeviceUid';
+  static const  currentDeviceId='currentDeviceId';
   static const  themeData='themeData';
 }
