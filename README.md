@@ -1,30 +1,31 @@
 # Kublet - Mobile App
 # Overview
 
-Kublet is a Flutter mobile application designed to communicate with BLE (Bluetooth Low Energy) devices named Kublet. The app dynamically creates the user interface based on data values and displays it on the Kublet device by generating a configuration string and sending it through BLE communication.
+Kublet is a Flutter mobile application designed to communicate with BLE (Bluetooth Low Energy) devices called Kublet. The app dynamically generates the user interface based on data values and sends configuration strings to the Kublet device via BLE, enabling real-time updates and feedback.
 
 
 # Features
+
 Connect and communicate with Kublet BLE devices
 
 Dynamically generate UI based on app data
 
 Send configuration strings to Kublet devices via BLE
 
-Real-time updates and feedback from the device
+Receive real-time updates and feedback from the device
 
-Requirements
+# Requirements
 
 Flutter SDK
 
 Android or iOS device with BLE support
 
-How It Works
+# How It Works
 
-The app reads user inputs or data values.
+The app reads user inputs or predefined data values.
 
-Generates a configuration string for the Kublet device.
+It generates a configuration string for the Kublet device.
 
 Sends the configuration via BLE communication.
 
-Kublet device displays the updated UI based on the configuration.
+The Kublet device displays the updated UI based on the configuration
